@@ -28,7 +28,6 @@ public struct CompanyIdentifier: RawRepresentable, Equatable, Hashable {
     public var rawValue: UInt16
     
     public init(rawValue: UInt16) {
-        
         self.rawValue = rawValue
     }
 }
@@ -38,7 +37,6 @@ public struct CompanyIdentifier: RawRepresentable, Equatable, Hashable {
 extension CompanyIdentifier: ExpressibleByIntegerLiteral {
     
     public init(integerLiteral value: UInt16) {
-        
         self.init(rawValue: value)
     }
 }
@@ -48,7 +46,10 @@ extension CompanyIdentifier: ExpressibleByIntegerLiteral {
 extension CompanyIdentifier: CustomStringConvertible {
     
     public var description: String {
-        
+        #if arch(wasm32)
+        return rawValue.description
+        #else
         return name ?? rawValue.description
+        #endif
     }
 }

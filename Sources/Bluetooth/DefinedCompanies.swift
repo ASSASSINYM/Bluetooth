@@ -6,8 +6,7 @@
 //  Copyright © 2018 PureSwift. All rights reserved.
 //
 
-import Foundation
-
+#if !arch(wasm32)
 public extension CompanyIdentifier {
     
     /// Bluetooth Company name.
@@ -1635,3 +1634,4 @@ internal let companyIdentifiers: [UInt16: String] = [
   1609: "Ryeex Technology Co.,Ltd.",
   .max: "Internal use Company ID"
 ]
+#endif

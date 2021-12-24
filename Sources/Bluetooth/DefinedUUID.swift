@@ -5,6 +5,7 @@
 //  Created by Alsey Coleman Miller on 1/5/18.
 //
 
+#if !arch(wasm32)
 public extension BluetoothUUID {
     
     /// Bluetooth UUID Definition name.
@@ -663,3 +664,4 @@ internal let definedUUIDs: [UInt16: String] = [
     0xfffe: "Alliance for Wireless Power (A4WP)",
     0xfffd: "Fast IDentity Online Alliance (FIDO)"
 ]
+#endif
